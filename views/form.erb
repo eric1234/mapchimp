@@ -1,13 +1,62 @@
-<% if request.request_method == 'POST' %>
-  <div class="error">All fields are required and must be valid.</div>
+<% if params[:invalid] %>
+  <div class="error icon-remove-circle"> All fields are required and must be valid.</div>
 <% end %>
 
+<p class="intro">
+  Enter your Mailchimp API key and the ID for a list in your Mailchimp
+  account. This application will mashup the data with Google Maps
+  to show you where your audience is.
+</p>
+
 <form method="POST">
-  <label for="api_key">API Key</label>
+  <label for="api_key">
+    API Key
+    <span class="trigger">?</span>
+    <span class="directions">
+      Found under Account -> API keys and Authorized Applications.
+      You may need to create a key
+    </span>
+  </label>
   <input type="text" name="api_key" id="api_key" value="<%= session[:api_key] %>">
 
-  <label for="list_id">List ID</label>
+  <label for="list_id">
+    List ID
+    <span class="trigger">?</span>
+    <span class="directions">
+      Found at the bottom of the "Settings" page for the list.
+    </span>
+  </label>
   <input type="text" name="list_id" id="list_id" value="<%= session[:list_id] %>">
 
-  <button type="submit">Map Subscribers</button>
+  <button type="submit" class="icon-search"> Map Subscribers</button>
 </form>
+
+<div id="about">
+  <h2>About MapChimp</h2>
+
+  <p>
+    MapChimp is a mashup between
+    <a href="http://mailchimp.com/">MailChimp</a> and
+    <a href="http://maps.google.com">Google Maps</a>. It was created to
+    help visualize where your audience is so you can better connect with
+    them in real life.
+  </p>
+
+  <p>
+    Entering your information into this site is safe. Nothing about your
+    Mailchimp account is saved on the server. The info your enter is
+    stored in your browsers session cookies and will be automatically
+    removed when you close your browser. The map data is pull fresh
+    every time you view the map directly from MailChimp. Feel free to
+    take a look at
+    <a href="http://github.com/eric1234/mapchimp">the source code</a>
+    for yourself to verify this.
+  </p>
+
+  <p>
+    <a href="mailto: eric@pixelwareinc.com">Eric Anderson</a> at
+    <a href="http://saveyourcall.com">SaveYourCall.com</a> created this
+    site for fun. Use at your own risk and please don't abuse it in any
+    way.
+  </p>
+</div>

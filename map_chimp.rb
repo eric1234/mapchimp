@@ -15,22 +15,27 @@ class MapChimp < Sinatra::Base
   end
 
   get '/map' do
-    mailchimp = GibbonExport.new session[:api_key]
-    list = mailchimp.list id: session[:list_id]
-    idx  = 0
-    headers = JSON.parse list.next
-    @subscribers = []
-    while subscriber = JSON.parse(list.next) rescue nil
-      subscriber = Hash[*headers.zip(subscriber).flatten]
-      next if subscriber['LATITUDE'].nil? || subscriber['LONGITUDE'].nil?
-      subscriber.each do |key, value|
-        subscriber.delete key if
-          key =~ /^[A-Z_]+$/ &&
-          key != 'LONGITUDE' &&
-          key != 'LATITUDE'
+    begin
+      mailchimp = GibbonExport.new session[:api_key]
+      list = mailchimp.list id: session[:list_id]
+      idx  = 0
+      headers = JSON.parse list.next
+      @subscribers = []
+      while subscriber = JSON.parse(list.next) rescue nil
+        subscriber = Hash[*headers.zip(subscriber).flatten]
+        next if subscriber['LATITUDE'].nil? || subscriber['LONGITUDE'].nil?
+        subscriber.each do |key, value|
+          subscriber.delete key if
+            key =~ /^[A-Z_]+$/ &&
+            key != 'LONGITUDE' &&
+            key != 'LATITUDE'
+        end
+        @subscribers << subscriber
       end
-      @subscribers << subscriber
+      @fullscreen = true
+      erb :map
+    rescue Gibbon::MailChimpError, SocketError
+      redirect to('/?invalid=true')
     end
-    erb :map
   end
 end

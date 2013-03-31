@@ -4,7 +4,9 @@ MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_PATH_ =
     'images/m';
 
 jQuery(document).ready ($) ->
-  map = new google.maps.Map $('#map')[0],
+  map = $('#map')[0]
+  return unless map
+  map = new google.maps.Map map,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   geocoder = new google.maps.Geocoder()
   geocoder.geocode address: 'United States of America', (results, status) -> 

@@ -1,8 +1,49 @@
-html, body, #page {height: 100%; @include box-sizing(border-box)}
-body {margin: 0; padding: 1em 0; background-color: #EAEAEA}
-img {border: 0}
-table {
-  border-collapse: collapse;
-  th {text-align: left}
+html.fullscreen {
+  &, body, #page {height: 100%; @include box-sizing(border-box)}
 }
-#page {width: 80em; margin: 0 auto; background-color: white}
+body {margin: 0; padding: 4em 0 1em; background-color: #CDD1D0}
+#page {
+  width: 1000px; background-color: white;
+  padding: 5em 1em 2em; margin: 0 auto;
+  position: relative;
+  border-radius: 0.5em;
+  box-shadow: 0 0 5px 0px hsla(0, 0%, 0%, 0.65);
+
+  .intro {
+    color: #3F3F38;
+    border-left: medium solid #DA3C26;
+    padding: 0 0 0 1em;
+    margin: 1em 0 2em;
+  }
+
+  header {
+    position: absolute;
+    top: -2.5em; left: 0;
+    display: block; width: 100%;
+    text-align: center;
+    cursor: pointer;
+
+    .background {
+      background-color: #72C1B0;
+      background-image: url(/icon.png);
+      background-position: 1em 50%;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      padding: 1em 1em 1em 4em;
+      width: 15em;
+      border-radius: 0.5em;
+      box-shadow: 0 1px 3px 0px hsla(0, 0%, 0%, 0.65);
+
+      h1 {
+        margin: 0; color: white;
+        text-shadow: hsla(0, 0%, 0%, 0.65) 0 1px;
+      }
+      #tag-line {
+        text-align: center; color: #3f3f38; font-size: 20px;
+        font-weight: bold
+      }
+    }
+  }
+
+  h2 {border-top: medium solid gray; padding: 1em 0 0; margin-top: 3em}
+}

@@ -1,0 +1,35 @@
+form {
+  label, input {display: block}
+  label, #{$all-text-inputs} {width: 100%}
+  #{$all-text-inputs} {
+    padding: 0.25em 0.5em;
+    @include box-sizing(border-box);
+    margin: 0 0 1em;
+    border: thin solid gray;
+    box-shadow: inset 1px 1px 3px 0px hsla(0, 0%, 0%, 0.3);
+  }
+  button {
+    @include button(simple, #e95c41);
+    margin: 0 auto;
+    display: block !important;
+  }
+  #{$all-text-inputs}, button {font-size: 150%}
+  label {
+    position: relative;
+    .trigger {
+      cursor: help; padding: 0 0.25em;
+      border: 2px solid #3F3F38;
+      background-color: #787975; color: white;
+      font-size: 60%; font-weight: bold;
+      position: relative; top: -0.5em;
+    }
+    &:hover .directions {display: block}
+    .directions {
+      text-decoration: none;
+      display: none; width: 30em; border: thin solid black;
+      background-color: #FFD14E; z-index: 10;
+      position: absolute; top: 1.5em; left: 0;
+      padding: 1em;
+    }
+  }
+}
