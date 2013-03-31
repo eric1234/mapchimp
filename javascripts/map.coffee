@@ -1,3 +1,8 @@
+# To force HTTPS
+MarkerClusterer.prototype.MARKER_CLUSTER_IMAGE_PATH_ =
+    'https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/' +
+    'images/m';
+
 jQuery(document).ready ($) ->
   map = new google.maps.Map $('#map')[0],
     mapTypeId: google.maps.MapTypeId.ROADMAP

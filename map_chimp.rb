@@ -1,7 +1,8 @@
 class MapChimp < Sinatra::Base
 
-  enable :sessions
+  use Rack::SslEnforcer if ENV['RACK_ENV'] == 'production'
   set :session_secret, ENV['SESSION_SECRET']
+  use Rack::Session::Cookie, secret: settings.session_secret
 
   get '/' do
     erb :form

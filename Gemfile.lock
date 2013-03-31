@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     POpen4 (0.1.4)
       Platform (>= 0.4.0)
@@ -8,7 +8,6 @@ GEM
     bourbon (3.1.1)
       sass (>= 3.2.0)
       thor
-    closure-compiler (1.1.8)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -36,6 +35,7 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    rack-ssl-enforcer (0.2.5)
     sass (3.2.7)
     shotgun (0.9)
       rack (>= 1.0)
@@ -61,11 +61,11 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon
-  closure-compiler
   coffee-script
   debugger
   dotenv
   gibbon
+  rack-ssl-enforcer
   sass
   shotgun
   sinatra
