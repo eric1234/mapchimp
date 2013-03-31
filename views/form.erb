@@ -1,0 +1,13 @@
+<% if request.request_method == 'POST' %>
+  <div class="error">All fields are required and must be valid.</div>
+<% end %>
+
+<form method="POST">
+  <label for="api_key">API Key</label>
+  <input type="text" name="api_key" id="api_key" value="<%= session[:api_key] %>">
+
+  <label for="list_id">List ID</label>
+  <input type="text" name="list_id" id="list_id" value="<%= session[:list_id] %>">
+
+  <button type="submit">Map Subscribers</button>
+</form>

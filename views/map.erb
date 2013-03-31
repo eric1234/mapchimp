@@ -1,0 +1,9 @@
+<div id="map"></div>
+
+<script>
+  var subscribers = <%= @subscribers.to_json %>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxq5SFKspc5nD7ZTbvNRJ31uUqAF6KG7I&sensor=false"></script>
+<script src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="/assets/map.js"></script>

@@ -1,0 +1,8 @@
+html, body, #page {height: 100%; @include box-sizing(border-box)}
+body {margin: 0; padding: 1em 0; background-color: #EAEAEA}
+img {border: 0}
+table {
+  border-collapse: collapse;
+  th {text-align: left}
+}
+#page {width: 80em; margin: 0 auto; background-color: white}
