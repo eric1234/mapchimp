@@ -1,0 +1,3 @@
+Simple Sinatra-based application to mashup Mailchimp and Google Maps
+information so you can see where your audience is at. This application
+is running at http://mapchimp.herokuapp.com.
